@@ -42,14 +42,15 @@ body {
     color: #8d99ae;
 }
 .nav_icon {
-    font-size: 20pt;
+    font-size: 25pt;
     color: #edf2f4;
 }
 .nav_text {
     padding-top: 10px !important;
     font-family: Helvetica, sans-serif;
+    font-size: 12pt;
 }
-/* Footer */
+/* footer */
 footer {
     background-color: #8d99ae;
     width: 100%;
@@ -58,7 +59,7 @@ footer {
     font-family: Helvetica, sans-serif;
 }
 
-/* Login Page */
+/* login page */
 .login_section {
     display: flex;
     align-items: center;
@@ -148,4 +149,44 @@ figcaption {
     font-size: 12pt;
     font-family: Helvetica, sans-serif;
     font-weight: lighter;
+}
+
+/* admin dashboard */
+.dash_headers {
+    text-align: center;
+    font-size: 15pt;
+    font-family: Helvetica, sans-serif;
+}
+.dash_blogs_list table {
+    max-width: 900px;
+    margin: auto;
+}
+.dash_blogs_list {
+    padding-left: 50px;
+}
+.dash_circle {
+    font-size: 50pt;
+    color: #8d99ae;
+}
+.dash_text {
+    padding-top: 10px !important;
+    font-family: Helvetica, sans-serif;
+    font-size: 16pt;
+    padding-bottom: 10px;
+    color: black;
+}
+.dash_icon {
+    padding-top: 30px;
+    padding-bottom: 70px;
+    text-align: center;
+    margin: auto;
+}
+.dash_tags table {
+    max-width: 200px;
+    margin: auto;
+}
+.dash_left_content {
+    position: absolute;
+    left: 90px;
+    top: 120px;
 }
