@@ -1,3 +1,151 @@
-p {
-    background-color: pink;
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
+/* navigation bar */
+body {
+    padding: 0 0 100px 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100%;
+}
+.main_nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background-color: #2b2d42;
+    margin: 0;
+}
+.icon_bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-grow: 1;
+}
+.icon_bar a {
+    text-align: center;
+    padding: 20px 30px;
+    color: #edf2f4;
+    text-decoration: none;
+}
+.icon_bar a:hover {
+    color: #8d99ae;
+    text-decoration: none;
+}
+.icon_bar a:active {
+    color: #8d99ae;
+    text-decoration: none;
+}
+.icon_bar .fa-solid:hover {
+    color: #8d99ae;
+}
+.icon_bar .fa-solid:active {
+    color: #8d99ae;
+}
+.nav_icon {
+    font-size: 20pt;
+    color: #edf2f4;
+}
+.nav_text {
+    padding-top: 10px !important;
+    font-family: Helvetica, sans-serif;
+}
+/* Footer */
+footer {
+    background-color: #8d99ae;
+    width: 100%;
+    padding: 10px 0;
+    color: #2b2d42;
+    font-family: Helvetica, sans-serif;
+}
+
+/* Login Page */
+.login_section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 80px;
+}
+.login_icon {
+    font-size: 100pt;
+    color: #8d99ae;
+    padding-bottom: 30px;
+}
+.btn {
+    background-color: #2b2d42 !important;
+    color: #edf2f4 !important;
+    border:none !important;
+    width: 100px !important;
+}
+.btn:hover {
+    background-color: #8d99ae !important;
+    color: #2b2d42 !important;
+}
+
+/* homepage */
+.welcome {
+    padding-top: 30px;
+    text-align: center;
+    max-width: 600px;
+    margin: auto;
+    padding-bottom: 40px;
+}
+.welcome h1 {
+    font-size: 35pt;
+    font-family: "Handlee", cursive;
+}
+.latest_three h2 {
+    font-family: "Handlee", cursive;
+    text-align: center;
+    padding-bottom: 30px;
+}
+.three {
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+.three figure {
+    text-align: center;
+}
+figcaption {
+    padding-top: 10px;
+}
+
+/* all blogs */
+.all_blogs {
+    padding-top: 30px;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+}
+.all_blogs h1 {
+    font-family: Helvetica, sans-serif;
+}
+.all_blogs hr {
+    max-width: 250px;
+    padding-bottom: 30px;
+}
+.blogs_list table {
+    max-width: 500px;
+    margin: auto;
+}
+.all_blogs_headers {
+    text-align: center;
+    font-size: 15pt;
+    font-family: Helvetica, sans-serif;
+}
+.all_blogs_tags {
+    position: absolute;
+}
+.all_blogs_tags table {
+    max-width: 200px;
+    margin: auto;
+}
+.tags_header {
+    text-align: center;
+    font-size: 12pt;
+    font-family: Helvetica, sans-serif;
+    font-weight: lighter;
 }
