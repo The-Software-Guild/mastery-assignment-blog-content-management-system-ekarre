@@ -54,12 +54,11 @@ body {
 footer {
     background-color: #8d99ae;
     width: 100%;
-    margin-top: 100px;
+    bottom: 0;
     padding: 10px 0;
     color: #2b2d42;
     font-family: Helvetica, sans-serif;
     position: absolute;
-
 }
 
 /* login page */
@@ -205,6 +204,7 @@ figcaption {
 
 /* create blog */
 .container {
+    padding-top: 30px;
     max-width: 800px;
 }
 .container .btn {
@@ -214,7 +214,7 @@ figcaption {
     max-width: 800px;
 }
 .container h1 {
-    padding-bottom: 30px;
+    font-family: Helvetica, sans-serif;
 }
 .create_blog {
     max-width: 700px !important;
@@ -225,4 +225,49 @@ figcaption {
     margin: auto !important;
     padding-top: 10px !important;
     padding-bottom: 10px !important;
+}
+.create_blog_addTag {
+    padding-top: 30px;
+    font-size: 12pt;
+}
+.title_field {
+    font-size: 12pt;
+    text-align: left;
+}
+
+/* read single blog post */
+.left-btn{
+    position:absolute;
+    /*bottom: 5%;*/
+    left:20%;
+}
+.right-btn {
+    position:absolute;
+    /*bottom: 5%;*/
+    right:20%;
+}
+.single_title {
+    padding-bottom: 30px;
+}
+
+/* create tags */
+.create_tag_block {
+    padding-bottom: 50px;
+}
+.container .create_tag_block {
+    max-width: 600px;
+    margin: auto;
+}
+.display_tags_block {
+    max-width: 700px;
+    margin: auto;
+}
+
+/* tiny ex*/
+.tiny_btn {
+    margin: auto;
+    background-color: #2b2d42 !important;
+    color: #edf2f4 !important;
+    border:none !important;
+    width: 150px !important;
 }
