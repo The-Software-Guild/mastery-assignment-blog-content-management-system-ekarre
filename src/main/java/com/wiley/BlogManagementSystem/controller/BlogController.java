@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Arrays;
+
 @Controller
 
 public class BlogController {
@@ -90,6 +92,35 @@ public class BlogController {
     public String getEditTag(Model model) {
         model.addAttribute("editTag");
         return "editTag";
+    }
+
+    @GetMapping("readSingleBlog")
+    public String getSingleBlog(Model model) {
+        model.addAttribute("readSingleBlog");
+        return "readSingleBlog";
+    }
+
+    @GetMapping("readSingleBlogLoggedOut")
+    public String getSingleBlogLO(Model model) {
+        model.addAttribute("readSingleBlogLoggedOut");
+        return "readSingleBlogLoggedOut";
+    }
+
+    @GetMapping("checkboxes")
+    public String getCheckboxes(Model model) {
+        model.addAttribute("checkboxes");
+        return "checkboxes";
+    }
+    @PostMapping("checkboxes")
+    public String postCheckboxes(String[] interest) {
+        System.out.println(Arrays.toString(interest));
+        return "checkboxes";
+    }
+
+    @GetMapping("blogTags")
+    public String getBlogTags(Model model) {
+        model.addAttribute("blogTags");
+        return "blogTags";
     }
 
 }

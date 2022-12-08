@@ -19,57 +19,85 @@
     <title>Admin Dashboard</title>
 </head>
 <body>
-<!--nav bar-->
-<div class="main_nav">
-    <div class="icon_bar">
-        <a href="#">
-            <i class="nav_icon fa-solid fa-house"></i>
-            <div class="nav_text">Home</div>
-        </a>
+<div class="wrapper">
+    <!--nav bar-->
+    <div class="main_nav">
+        <div class="icon_bar">
+            <a href="#">
+                <i class="nav_icon fa-solid fa-house"></i>
+                <div class="nav_text">Home</div>
+            </a>
+        </div>
+        <div class="icon_bar">
+            <a href="#">
+                <i class="nav_icon fa-solid fa-blog"></i>
+                <div class="nav_text">All Blog Posts</div>
+            </a>
+        </div>
+        <div class="icon_bar">
+            <a href="#">
+                <i class="nav_icon fa-solid fa-pen"></i>
+                <div class="nav_text">Create Blog Post</div>
+            </a>
+        </div>
+        <div class="icon_bar">
+            <a href="#">
+                <i class="nav_icon fa-solid fa-circle-user"></i>
+                <div class="nav_text">Account</div>
+            </a>
+        </div>
     </div>
-    <div class="icon_bar">
-        <a href="#">
-            <i class="nav_icon fa-solid fa-blog"></i>
-            <div class="nav_text">All Blog Posts</div>
-        </a>
-    </div>
-    <div class="icon_bar">
-        <a href="#">
-            <i class="nav_icon fa-solid fa-pen"></i>
-            <div class="nav_text">Create Blog Post</div>
-        </a>
-    </div>
-    <div class="icon_bar">
-        <a href="#">
-            <i class="nav_icon fa-solid fa-circle-user"></i>
-            <div class="nav_text">Account</div>
-        </a>
-    </div>
-</div>
 
-<div class="all_blogs">
-    <h1>All Blogs</h1>
-    <hr>
-    <div class="dash_left_content">
-        <div class="dash_icon">
-            <i class="dash_circle fa-solid fa-circle-user"></i>
-            <div class="dash_text">User</div>
-            <div class="col text-center">
-                <button type="submit" class="btn btn-default">Log out</button>
+    <div class="all_blogs">
+        <h1>All Blogs</h1>
+        <hr>
+        <div class="dash_left_content">
+            <div class="dash_icon">
+                <i class="dash_circle fa-solid fa-circle-user"></i>
+                <div class="dash_text">User</div>
+                <div class="col text-center">
+                    <button type="submit" class="btn btn-default">Log out</button>
+                </div>
+            </div>
+            <div class="dash_tags">
+                <div class="row m-4 border border-dark">
+                    <div class="col text-center m-3">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th class="tags_header">Tags</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!--<tr th:each="blog : ${blogs}">
+                                <td th:text="${blog.tags}"></td>
+                            </tr>-->
+                            </tbody>
+                        </table>
+                        <div class="col text-center">
+                            <button type="submit" class="btn btn-default">Manage Tags</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="dash_tags">
+        <div class="dash_blogs_list">
             <div class="row m-4 border border-dark">
                 <div class="col text-center m-3">
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th class="tags_header">Tags</th>
+                            <th class="dash_headers">Title</th>
+                            <th class="dash_headers">Date Created</th>
+                            <th class="dash_headers">Status</th>
+                            <th class="dash_headers">Edit</th>
                         </tr>
                         </thead>
                         <tbody>
                         <!--<tr th:each="blog : ${blogs}">
-                            <td th:text="${blog.tags}"></td>
+                            <td th:text="${blog.title}"></td>
+                            <td th:text="${blog.date}"></td>
+                            <a href="#" th:href="@{/editAddress(add_id=${address.add_id})}">
                         </tr>-->
                         </tbody>
                     </table>
@@ -77,38 +105,14 @@
             </div>
         </div>
     </div>
-    <div class="dash_blogs_list">
-        <div class="row m-4 border border-dark">
-            <div class="col text-center m-3">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th class="dash_headers">Title</th>
-                        <th class="dash_headers">Date Created</th>
-                        <th class="dash_headers">Status</th>
-                        <th class="dash_headers">Edit</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <!--<tr th:each="blog : ${blogs}">
-                        <td th:text="${blog.title}"></td>
-                        <td th:text="${blog.date}"></td>
-                        <a href="#" th:href="@{/editAddress(add_id=${address.add_id})}">
-                    </tr>-->
-                    </tbody>
-                </table>
-            </div>
+
+    <!-- footer -->
+    <footer>
+        <div class="text-center p-3">
+            &copy; 2022 Wiley Edge
         </div>
-    </div>
+    </footer>
 </div>
-
-<!-- footer -->
-<footer>
-    <div class="text-center p-3">
-        &copy; 2022 Wiley Edge
-    </div>
-</footer>
-
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
