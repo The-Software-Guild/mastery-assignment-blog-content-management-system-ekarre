@@ -8,8 +8,6 @@
     <!-- my css file -->
     <!-- this one links to the CSS in the webpage -->
     <link rel="stylesheet" href="/css/main.css">
-    <!-- have to do this one in order to see the preview -->
-    <link rel="stylesheet" href="../static/css/main.css">
     <!-- font awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
     <!-- Bootstrap CSS -->
@@ -23,25 +21,25 @@
     <!--nav bar-->
     <div class="main_nav">
         <div class="icon_bar">
-            <a href="#">
+            <a href="index">
                 <i class="nav_icon fa-solid fa-house"></i>
                 <div class="nav_text">Home</div>
             </a>
         </div>
         <div class="icon_bar">
-            <a href="#">
+            <a href="allBlogs">
                 <i class="nav_icon fa-solid fa-blog"></i>
                 <div class="nav_text">All Blog Posts</div>
             </a>
         </div>
         <div class="icon_bar">
-            <a href="#">
+            <a href="adminCreateBlog">
                 <i class="nav_icon fa-solid fa-pen"></i>
                 <div class="nav_text">Create Blog Post</div>
             </a>
         </div>
         <div class="icon_bar">
-            <a href="#">
+            <a href="adminDash">
                 <i class="nav_icon fa-solid fa-circle-user"></i>
                 <div class="nav_text">Account</div>
             </a>
@@ -49,16 +47,19 @@
     </div>
 
     <!--listing all blogs-->
-    <div class="all_blogs">
+    <div class="all_blogs_dash">
         <h1>All Blogs</h1>
         <hr>
+        <div class="dash_flex">
         <div class="dash_left_content">
             <!--account details and logout button-->
             <div class="dash_icon">
                 <i class="dash_circle fa-solid fa-circle-user"></i>
                 <div class="dash_text">Administrator</div>
                 <div class="col text-center">
+                    <a href="login">
                     <button type="submit" class="btn btn-default">Log out</button>
+                    </a>
                 </div>
             </div>
             <!--list of tags and "manage tags" button-->
@@ -72,13 +73,15 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <!--<tr th:each="blog : ${blogs}">
-                                <td th:text="${blog.tags}"></td>
-                            </tr>-->
+                            <tr th:each="tag : ${tags}">
+                                <td th:text="${tag.tag_name}"></td>
+                            </tr>
                             </tbody>
                         </table>
                         <div class="col text-center">
-                            <button type="submit" class="btn btn-default">Manage Tags</button>
+                            <a href="addTag">
+                                <button type="submit" class="btn btn-default">Add Tag</button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -93,21 +96,24 @@
                         <tr>
                             <th class="dash_headers">Title</th>
                             <th class="dash_headers">Date Created</th>
-                            <th class="dash_headers">Status</th>
+                            <th class="dash_headers">Approved</th>
                             <th class="dash_headers">Edit</th>
                             <th class="dash_headers">Delete</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <!--<tr th:each="blog : ${blogs}">
+                        <tr th:each="blog : ${blogs}">
                             <td th:text="${blog.title}"></td>
                             <td th:text="${blog.date}"></td>
-                            <a href="#" th:href="@{/editAddress(add_id=${address.add_id})}">
-                        </tr>-->
+                            <td th:text="${blog.isApproved}"></td>
+                            <td><a href="#" th:href="@{/editBlog(blog_id=${blog.blog_id})}">Edit</a></td>
+                            <td><a href="#" th:href="@{/deleteBlog(blog_id=${blog.blog_id})}">Delete</a></td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 

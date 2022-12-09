@@ -107,7 +107,7 @@ img {
     text-align: center;
     max-width: 600px;
     margin: auto;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
 }
 .welcome h1 {
     font-size: 35pt;
@@ -116,7 +116,7 @@ img {
 .latest_three h2 {
     font-family: "Handlee", cursive;
     text-align: center;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 }
 .three {
     max-width: 600px;
@@ -124,12 +124,22 @@ img {
     align-items: center;
     justify-content: space-between;
     margin: auto;
+    padding-bottom: 50px;
 }
 .three figure {
     text-align: center;
 }
 figcaption {
     padding-top: 10px;
+    font-size: 18pt !important;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+}
+figure .date {
+    padding-top: 10px;
+    font-size: 12pt !important;
+    font-family: Helvetica, sans-serif;
+    font-weight: normal !important;
 }
 
 /* all blogs */
@@ -179,9 +189,6 @@ figcaption {
     max-width: 900px;
     margin: auto;
 }
-.dash_blogs_list {
-    padding-left: 50px;
-}
 .dash_circle {
     font-size: 50pt;
     color: #8d99ae;
@@ -195,7 +202,7 @@ figcaption {
 }
 .dash_icon {
     padding-top: 30px;
-    padding-bottom: 70px;
+    padding-bottom: 40px;
     text-align: center;
     margin: auto;
 }
@@ -204,13 +211,25 @@ figcaption {
     margin: auto;
 }
 .dash_left_content {
-    position: absolute;
-    left: 90px;
-    top: 120px;
+    margin-top: -110px;
+    margin-right: 130px;
 }
 .dash_tags .btn {
     width: 120px !important;
     margin-top: 50px !important;
+}
+.dash_flex {
+    display: flex;
+}
+.all_blogs_dash {
+    padding-top: 30px;
+    text-align: center;
+    max-width: 1000px;
+    margin: auto;
+    padding-bottom: 30px;
+}
+.all_blogs_dash hr {
+    max-width: 500px
 }
 
 /* create blog */
@@ -250,6 +269,9 @@ figcaption {
 .tag_boxes ul {
     list-style-type: none;
 }
+#checkbox_div {
+    padding-top: 25px;
+}
 
 /* read single blog post */
 .single_title {
@@ -257,6 +279,24 @@ figcaption {
 }
 .back_btn {
     width: 120px !important;
+}
+#blogTitle {
+    font-family: "Handlee", cursive;
+    padding: 0;
+}
+#tags {
+    font-size: 16pt;
+    margin: 0;
+    padding-bottom: 10px;
+}
+#date {
+    font-size: 12pt;
+    margin: 0;
+    padding-bottom: 20px;
+}
+.blogs-section {
+    max-width: 600px !important;
+    margin: auto;
 }
 
 /* create tags */
@@ -270,6 +310,9 @@ figcaption {
 .display_tags_block {
     max-width: 700px;
     margin: auto;
+}
+.btn_back {
+    width: 150px !important;
 }
 
 /* tiny ex*/

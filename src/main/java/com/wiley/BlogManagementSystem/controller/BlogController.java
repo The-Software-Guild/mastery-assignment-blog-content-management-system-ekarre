@@ -1,113 +1,62 @@
 package com.wiley.BlogManagementSystem.controller;
 
+import com.wiley.BlogManagementSystem.dao.BlogDao;
+import com.wiley.BlogManagementSystem.dao.TagDao;
+import com.wiley.BlogManagementSystem.model.Blog;
+import com.wiley.BlogManagementSystem.model.BlogTagDetail;
+import com.wiley.BlogManagementSystem.model.Tag;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Controller
-
 public class BlogController {
 
+    @Autowired
+    BlogDao blogDao;
+
+    @Autowired
+    TagDao tagDao;
+
     @GetMapping("index")
-    public String getIndex(Model model) {
-        model.addAttribute("index");
+    public String getIndex(Model model){
+        List<Blog> blogs = blogDao.getLastThreeBlogs();
+        model.addAttribute("blogs",blogs);
         return "index";
     }
-    @GetMapping("indexLoggedOut")
-    public String getIndexLO(Model model) {
-        model.addAttribute("indexLoggedOut");
-        return "indexLoggedOut";
-    }
 
-    @GetMapping("allBlogs")
-    public String getAllBlogs(Model model) {
-        model.addAttribute("allBlogs");
-        return "allBlogs";
-    }
-    @GetMapping("allBlogsLoggedOut")
-    public String getAllBlogsLO(Model model) {
-        model.addAttribute("allBlogsLoggedOut");
-        return "allBlogsLoggedOut";
-    }
-
-    @GetMapping("createBlog")
-    public String getCreateBlogs(Model model) {
-        model.addAttribute("createBlog");
-        return "createBlog";
-    }
-
-    @GetMapping("editBlog")
-    public String getEditBlog(Model model) {
-        model.addAttribute("editBlog");
-        return "editBlog";
-    }
-
-    @GetMapping("adminDash")
-    public String getAdminDash(Model model) {
-        model.addAttribute("adminDash");
-        return "adminDash";
-    }
-
-    @GetMapping("login")
-    public String getLogin(Model model) {
-        model.addAttribute("login");
-        return "login";
-    }
-
-    @GetMapping("userDash")
-    public String getUserDash(Model model) {
-        model.addAttribute("userDash");
-        return "userDash";
-    }
-
-    @GetMapping("tinyex")
-    public String getTinyEx(Model model) {
-        //model needs to eventually supply the content from the database to thymeleaf
-        model.addAttribute("tinyex");
-        return "tinyex";
-    }
-
-    @PostMapping("tinyex")
-    public String postTinyEx(String content) {
-        System.out.println(content);
-        return "tinyex";
-    }
-
-    @PostMapping("createBlog")
-    public String postBlog(String content) {
-        System.out.println(content);
-        return "createBlog";
-    }
-
-    @PostMapping("editBlog")
-    public String editBlog(String content) {
-        System.out.println(content);
-        return "editBlog";
-    }
-
-    @GetMapping("editTag")
-    public String getEditTag(Model model) {
-        model.addAttribute("editTag");
-        return "editTag";
+    @GetMapping("userIndex")
+    public String getUserIndex(Model model){
+        List<Blog> blogs = blogDao.getLastThreeBlogs();
+        model.addAttribute("blogs",blogs);
+        return "userIndex";
     }
 
     @GetMapping("readSingleBlog")
-    public String getSingleBlog(Model model) {
-        model.addAttribute("readSingleBlog");
+    public String getBlogDetails(Model model, Integer blog_id){
+        Blog blog = blogDao.getBlogById(blog_id);
+        BlogTagDetail btd = blogDao.getSingleBlogTags(blog_id);
+        model.addAttribute("blog", blog);
+        model.addAttribute("btd",btd);
         return "readSingleBlog";
     }
 
-    @GetMapping("readSingleBlogLoggedOut")
-    public String getSingleBlogLO(Model model) {
-        model.addAttribute("readSingleBlogLoggedOut");
-        return "readSingleBlogLoggedOut";
+    @GetMapping("userReadSingleBlog")
+    public String getUserBlogDetails(Model model, Integer blog_id){
+        Blog blog = blogDao.getBlogById(blog_id);
+        BlogTagDetail btd = blogDao.getSingleBlogTags(blog_id);
+        model.addAttribute("blog", blog);
+        model.addAttribute("btd",btd);
+        return "userReadSingleBlog";
     }
 
     @GetMapping("checkboxes")
-    public String getCheckboxes(Model model) {
+    public String getCheckboxes(Model model){
         model.addAttribute("checkboxes");
         return "checkboxes";
     }
@@ -117,10 +66,44 @@ public class BlogController {
         return "checkboxes";
     }
 
-    @GetMapping("blogTags")
-    public String getBlogTags(Model model) {
-        model.addAttribute("blogTags");
-        return "blogTags";
+    @GetMapping("allBlogs")
+    public String displayBlogs(Model model){
+//        List<BlogTagDetail> blogs = blogDao.getAllBlogTags();
+//        model.addAttribute("blogs", blogs);
+        //I think this is where we need to only list blogs that are approved
+        List<Blog> blogs = blogDao.getAllApprovedBlog();
+        model.addAttribute("blogs",blogs);
+
+        List<Tag> tags= tagDao.getAllTags();
+        model.addAttribute("tags", tags);
+        return "allBlogs";
+    }
+
+    @GetMapping("userAllBlogs")
+    public String displayUserAllBlogs(Model model){
+//        List<BlogTagDetail> blogs = blogDao.getAllBlogTags();
+//        model.addAttribute("blogs", blogs);
+        //I think this is where we need to only list blogs that are approved
+        List<Blog> blogs = blogDao.getAllBlog();
+        model.addAttribute("blogs",blogs);
+
+        List<Tag> tags= tagDao.getAllTags();
+        model.addAttribute("tags", tags);
+        return "userAllBlogs";
+    }
+
+    @GetMapping("activeBlogs")
+    public String displayActiveBlogs(Model model){
+        List<Blog> activeBlogs = blogDao.getAllActiveBlogs();
+        model.addAttribute("activeBlogs", activeBlogs);
+        return "activeBlogs";
+    }
+
+    @GetMapping("recentBlogs")
+    public String displayRecentBlogs(Model model){
+        List<Blog> recentBlogs = blogDao.getRecentBlogs();
+        model.addAttribute("recentBlogs", recentBlogs);
+        return "recentBlogs";
     }
 
 }

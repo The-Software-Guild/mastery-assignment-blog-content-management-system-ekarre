@@ -23,19 +23,19 @@
   <!--nav bar-->
   <div class="main_nav">
     <div class="icon_bar">
-      <a href="#">
+      <a href="index">
         <i class="nav_icon fa-solid fa-house"></i>
         <div class="nav_text">Home</div>
       </a>
     </div>
     <div class="icon_bar">
-      <a href="#">
+      <a href="allBlogs">
         <i class="nav_icon fa-solid fa-blog"></i>
         <div class="nav_text">All Blog Posts</div>
       </a>
     </div>
     <div class="icon_bar">
-      <a href="#">
+      <a href="adminDash">
         <i class="nav_icon fa-solid fa-circle-user"></i>
         <div class="nav_text">Account</div>
       </a>
@@ -56,9 +56,9 @@
             </tr>
             </thead>
             <tbody>
-            <!--<tr th:each="blog : ${blogs}">
-                <td th:text="${blog.tags}"></td>
-            </tr>-->
+            <tr th:each="tag : ${tags}">
+              <td th:text="${tag.tag_name}"></td>
+            </tr>
             </tbody>
           </table>
         </div>
@@ -68,18 +68,18 @@
       <div class="row m-4 border border-dark">
         <div class="col text-center m-3">
           <table class="table table-striped">
-            <thead>
             <tr>
               <th class="all_blogs_headers">Title</th>
               <th class="all_blogs_headers">Date</th>
+              <th class="all_blogs_headers">Details</th>
             </tr>
             </thead>
             <tbody>
-            <!--<tr th:each="blog : ${blogs}">
-                <td th:text="${blog.title}"></td>
-                <td th:text="${blog.date}"></td>
-                <a href="#" th:href="@{/editAddress(add_id=${address.add_id})}">
-            </tr>-->
+            <tr th:each="blog : ${blogs}">
+              <td th:text="${blog.title}"></td>
+              <td th:text="${blog.date}"></td>
+              <td><a href="#" th:href="@{/readSingleBlog(blog_id=${blog.blog_id})}">Details</a></td>
+            </tr>
             </tbody>
           </table>
         </div>

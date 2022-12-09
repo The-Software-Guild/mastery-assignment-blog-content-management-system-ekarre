@@ -8,8 +8,6 @@
     <!-- my css file -->
     <!-- this one links to the CSS in the webpage -->
     <link rel="stylesheet" href="/css/main.css">
-    <!-- have to do this one in order to see the preview -->
-    <link rel="stylesheet" href="../static/css/main.css">
     <!-- font awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
     <!-- Bootstrap CSS -->
@@ -35,13 +33,13 @@
             </a>
         </div>
         <div class="icon_bar">
-            <a href="createBlog">
+            <a href="adminCreateBlog">
                 <i class="nav_icon fa-solid fa-pen"></i>
                 <div class="nav_text">Create Blog Post</div>
             </a>
         </div>
         <div class="icon_bar">
-            <a href="#">
+            <a href="adminDash">
                 <i class="nav_icon fa-solid fa-circle-user"></i>
                 <div class="nav_text">Account</div>
             </a>
@@ -51,8 +49,7 @@
     <!-- welcome message-->
     <div class="welcome">
         <h1>Welcome</h1>
-        <!-- change this to be something else -->
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Welcome to my blog site. These are my own personal thoughts, beliefs, and perspectives of the world. This is not representative of anyone other than me. Everyone has an opinion on something, and these are mine. We may end up having to agree to disagree, and I can guarantee that not everyone will feel the way that I do. Whatever I post is most likely posted straight out of my mind, as I write stream-of-conscious style.</p>
     </div>
 
     <!-- latest posts -->
@@ -60,20 +57,10 @@
         <h2>Latest Blog Posts</h2>
         <div class="three">
             <!-- figure out how to have the latest blogs be displayed with their dates -->
-            <figure class="figure">
-                <img src="https://via.placeholder.com/150" class="latest_img" alt="blog image">
-                <figcaption class="figure-caption">Blog Title</figcaption>
-                <figcaption class="figure-caption">Date</figcaption>
-            </figure>
-            <figure class="figure">
-                <img src="https://via.placeholder.com/150" class="latest_img" alt="blog image">
-                <figcaption class="figure-caption">Blog Title</figcaption>
-                <figcaption class="figure-caption">Date</figcaption>
-            </figure>
-            <figure class="figure">
-                <img src="https://via.placeholder.com/150" class="latest_img" alt="blog image">
-                <figcaption class="figure-caption">Blog Title</figcaption>
-                <figcaption class="figure-caption">Date</figcaption>
+            <figure class="figure" th:each="blog : ${blogs}">
+                <figcaption class="figure-caption" th:text="${blog.title}"></figcaption>
+                <figcaption class="figure-caption date" th:text="${blog.date}"></figcaption>
+                <figcaption class="figure-caption date" ><a href="#" th:href="@{/readSingleBlog(blog_id=${blog.blog_id})}">[ read more ]</a></figcaption>
             </figure>
         </div>
     </div>
