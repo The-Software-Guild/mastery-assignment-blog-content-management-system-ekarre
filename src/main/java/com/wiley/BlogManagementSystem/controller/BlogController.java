@@ -106,4 +106,14 @@ public class BlogController {
         return "recentBlogs";
     }
 
+    @GetMapping("privacy")
+    public String privacy() {
+        return "privacy";
+    }
+
+    @GetMapping("userPrivacy")
+    public String userPrivacy() {
+        return "userPrivacy";
+    }
+
 }
